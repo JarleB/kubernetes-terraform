@@ -4,7 +4,7 @@
   become: False
   pre_tasks:
     - name: waiting for host to come online
-      local_action: wait_for host={{ hostvars[inventory_hostname]['ansible_host'] }}
+      local_action: wait_for host={{ hostvars[inventory_hostname]['ansible_ssh_host'] }}
                 state=started port=22
       become: false
     - name: Ensuring that sshd is running properly
